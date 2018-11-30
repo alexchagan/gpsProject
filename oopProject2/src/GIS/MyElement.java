@@ -10,16 +10,22 @@ public class MyElement implements GIS_element {
 	private Meta_data data;
 	private String color;
 	
-	public MyElement(Point3D geom, String name)
+	public MyElement(Point3D geom, String name,String color)
 	{
 		this.geom = geom;
 		this.name = name;
+		this.color = color;
 	}
 	
 	@Override
 	public Geom_element getGeom() {
 		
 		return this.geom;
+	}
+	@Override
+	public String getName()
+	{
+		return this.name;
 	}
 
 	@Override

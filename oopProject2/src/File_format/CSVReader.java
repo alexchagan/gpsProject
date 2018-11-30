@@ -8,7 +8,13 @@ import GIS.MyLayer;
 import Geom.Point3D;
 
 public class CSVReader {
-
+/**
+ * This method reads from a CSV file and creates a layer object that contains an array of elements.
+ * each element is 1 row in the CSV file.
+ * source: yael landau moodle
+ * @param path - CSV file path
+ * @return layer object
+ */
 	public MyLayer readFromCSV(String path)
 
 	{
@@ -35,8 +41,13 @@ public class CSVReader {
 				double lat = Double.parseDouble(userInfo[6]);
 				double lon = Double.parseDouble(userInfo[7]);
 				double alt = Double.parseDouble(userInfo[8]);
+				String color;
+				if(alt>0)
+					color = "green";
+				else
+					color = "blue";
 
-				MyElement element = new MyElement(new Point3D(lat,lon,alt),userInfo[1]);
+				MyElement element = new MyElement(new Point3D(lat,lon,alt),userInfo[1],color);
 				layer.add(element);
 			}
 
