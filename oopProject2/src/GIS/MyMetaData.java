@@ -10,14 +10,8 @@ import Geom.Point3D;
 
 public class MyMetaData implements Meta_data {
 
-	String MAC;
-	String SSID;
-	String AuthMode;
-	String FirstSeen;
-	int Channel;
-	int RSSI;
-	int AccuracyMeters;
-	String Type;
+	private String UTC;
+	private String data;
 	
 	@Override
 	/**
@@ -27,7 +21,7 @@ public class MyMetaData implements Meta_data {
 		
 		DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss aa", Locale.ENGLISH);
 		try {
-			Date date = format.parse(this.FirstSeen);
+			Date date = format.parse(this.UTC);
 			long utc = date.getTime();
 			return utc;
 		} catch (ParseException e) {
@@ -40,13 +34,18 @@ public class MyMetaData implements Meta_data {
 
 	@Override
 	public Point3D get_Orientation() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	
-	public static void main(String[] args) {
+	@Override
+	/** return a String representing this data */
+	public String toString()
+	{
+		return this.data;
 		
 	}
+	
 
 	
 

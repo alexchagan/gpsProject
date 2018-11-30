@@ -9,8 +9,11 @@ import Geom.Point3D;
  * @author Boaz Ben-Moshe
  *
  */
-public interface GIS_element {
+public interface GIS_element
+{
 	public Geom_element getGeom();
+	
 	public Meta_data getData();
+	
 	public void translate(Point3D vec);
 }
