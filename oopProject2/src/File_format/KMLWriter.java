@@ -1,6 +1,10 @@
 package File_format;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Iterator;
+
+import javax.xml.bind.Marshaller;
 
 import GIS.GIS_element;
 import GIS.GIS_layer;
@@ -13,40 +17,37 @@ import de.micromata.opengis.kml.v_2_2_0.Kml;
 
 
 public class KMLWriter {
-	
-	public void createElement(MyElement element)
+
+
+	public void createLayer(MyLayer layer) throws FileNotFoundException
 	{
 		
-	}
-	
-	
-	public void createLayer(MyLayer layer,String docName)
-	{
 		Kml kml = new Kml();
-		Document document = kml.createAndSetDocument().withName(docName);
+		Document document = kml.createAndSetDocument();
 		Iterator<GIS_element> it = layer.iterator();
-		
+
 		while(it.hasNext())
 		{
-		GIS_element element = it.next();
-		String name = element.getName();
-		Point3D point = (Point3D) element.getGeom();
-		
-		
-		document.createAndAddPlacemark().withName(name).withOpen(Boolean.TRUE)  
-		    .createAndSetPoint().addToCoordinates(point.x(), point.y()); 
+			GIS_element element = it.next();
+			String name = element.getData().getName();
+			Point3D point = (Point3D) element.getGeom();
+			String color = element.getData().getColor();
+			
+			document.createAndAddPlacemark().withName(name).withOpen(Boolean.TRUE)
+			.createAndSetPoint().addToCoordinates(point.y(), point.x()); 
+			document.setStyleUrl("#placemark-red");
+			
+			
+			kml.marshal(new File("kmltest1.kml"));
+							
 		}
 
-		
 
-		
-	}
-	/**
-	public void createProject (MyProject project)
-	{
-		
-		
-	}
-	*/
+
+
+	} 
 
 }
+
+
+

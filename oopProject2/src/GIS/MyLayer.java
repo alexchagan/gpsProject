@@ -3,6 +3,7 @@ package GIS;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 
 import javax.lang.model.element.Element;
@@ -11,7 +12,22 @@ import javax.lang.model.element.Element;
 public class MyLayer  implements GIS_layer {
 	
 	private ArrayList<GIS_element> elements;
-	private Meta_data data;
+	private MyMetaData data;
+	
+	
+	public MyLayer()
+	{
+		//Date date = new Date();
+		this.elements = new ArrayList<GIS_element>();
+		//this.data = new MyMetaData(date.toString(),"This is a layer of elements, was created in: "+date.toString(),null,null);
+		
+	}
+	
+	public MyLayer(MyMetaData data)
+	{
+		this.elements = new ArrayList<GIS_element>();
+		this.data = data;
+	}
 
 	@Override
 	public boolean add(GIS_element e) {

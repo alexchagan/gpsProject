@@ -200,30 +200,7 @@ public class Point3D implements Geom_element, Serializable
     return new Point3D(lat,lon,alt);
     }
     
-////////////////////////////////////////////////////////////////////////    
-//    public Point3D ecef2lla2(Point3D point)
-//    {
-//    	double a = 6378137; // radius
-//    	double e = 8.1819190842622e-2;  // eccentricity
-//    	double asq = Math.pow(a,2);
-//    	double esq = Math.pow(e,2);
-//    	
-//    	  double b = Math.sqrt( asq * (1-esq) );
-//    	  double bsq = Math.pow(b,2);
-//    	  double ep = Math.sqrt( (asq - bsq)/bsq);
-//    	  double p = Math.sqrt( Math.pow(point._x,2) + Math.pow(point._y,2) );
-//    	  double th = Math.atan2(a*point._z, b*p);
-//
-//    	  double lon = Math.atan2(point._y,point._x);
-//    	  double lat = Math.atan2( (point._z + Math.pow(ep,2)*b*Math.pow(Math.sin(th),3) ), (p - esq*a*Math.pow(Math.cos(th),3)) );
-//    	  double N = a/( Math.sqrt(1-esq*Math.pow(Math.sin(lat),2)) );
-//    	  double alt = p / Math.cos(lat) - N;
-//    	  lon = lon % (2*Math.PI);
-//    	  
-//    	  return new Point3D(lat,lon,alt);
-//    }
 
-    ///////////////////////////////////////////////////////////////////////////////////////
     /**
      * Converts a point from LLA to ECEF
      * source:https://stackoverflow.com/questions/16614057/longitude-latitude-altitude-to-3d-cartesian-coordinate-systems
@@ -231,7 +208,7 @@ public class Point3D implements Geom_element, Serializable
      */
     public Point3D lla2ecef()
     {
-    	////////////////////////////////////////////////////
+    	
     	/*
     	 * WGS84 ellipsoid constants Radius
     	 */
@@ -255,9 +232,10 @@ public class Point3D implements Geom_element, Serializable
     	   double y = (N + alt) * Math.cos(lat) * Math.sin(lon);
     	  double z = ((1 - esq) * N + alt) * Math.sin(lat);
     	return new Point3D(x,y,z);
-    	////////////////////////////////////////////////////
-    	
+    
     }
+    
+
     
     
 public final static int ONSEGMENT = 0,  LEFT = 1, RIGHT = 2, INFRONTOFA = 3, BEHINDB = 4, ERROR = 5;
