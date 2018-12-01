@@ -7,6 +7,11 @@ import GIS.MyLayer;
 import GIS.MyMetaData;
 import GIS.MyProject;
 
+/**
+ * This class handles reading all csv files from a certain path
+ * @author Alex 206262123
+ *
+ */
 public class MultiCSVReader 
 {
 

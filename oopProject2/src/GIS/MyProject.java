@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 /**
  * This class implements GIS_project and uses an arraylist to contain layers.
- * @author gogom
+ * @author Alex 206262123
  *
  */
 public class MyProject implements GIS_project {

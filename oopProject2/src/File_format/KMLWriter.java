@@ -3,15 +3,10 @@ package File_format;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Iterator;
-
-import javax.xml.bind.Marshaller;
-
 import GIS.GIS_element;
 import GIS.GIS_layer;
-import GIS.MyElement;
 import GIS.MyLayer;
 import GIS.MyProject;
-import Geom.Geom_element;
 import Geom.Point3D;
 import de.micromata.opengis.kml.v_2_2_0.Document;
 import de.micromata.opengis.kml.v_2_2_0.Icon;
@@ -19,7 +14,11 @@ import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Style;
 import de.micromata.opengis.kml.v_2_2_0.TimeStamp;
 
-
+/**
+ * This class implements methods to make a kml file from a layer or from a project
+ * @author Alex 206262123
+ *
+ */
 public class KMLWriter {
 
 

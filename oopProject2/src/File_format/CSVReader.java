@@ -10,6 +10,11 @@ import GIS.MyLayer;
 import GIS.MyMetaData;
 import Geom.Point3D;
 
+/**
+ * This class reads from a single csv file and creates a layer
+ * @author Alex 206262123
+ *
+ */
 public class CSVReader {
 	/**
 	 * This method reads from a CSV file and creates a layer object that contains an array of elements.
