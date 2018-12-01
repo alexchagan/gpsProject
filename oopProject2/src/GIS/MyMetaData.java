@@ -5,9 +5,13 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-
 import Geom.Point3D;
 
+/**
+ * This class implements Meta_data and contains all the possible data.
+ * @author gogom
+ *
+ */
 public class MyMetaData implements Meta_data {
 
 	private String UTC;

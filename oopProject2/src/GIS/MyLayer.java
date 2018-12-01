@@ -8,7 +8,11 @@ import java.util.Iterator;
 
 import javax.lang.model.element.Element;
 
-
+/**
+ * This class implements GIS_layer and uses an arraylist to contain elements.
+ * @author Alex 2062626123
+ *
+ */
 public class MyLayer  implements GIS_layer {
 	
 	private ArrayList<GIS_element> elements;

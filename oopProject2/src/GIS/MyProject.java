@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
+/**
+ * This class implements GIS_project and uses an arraylist to contain layers.
+ * @author gogom
+ *
+ */
 public class MyProject implements GIS_project {
 
 	private ArrayList<GIS_layer> layers;

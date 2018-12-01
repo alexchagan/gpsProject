@@ -2,7 +2,7 @@ package Coords;
 
 import Geom.Point3D;
 /**
- * 
+ * This class implements coord_converter interface
  * @author Alex Chagan 206262123
  *
  */
@@ -27,7 +27,7 @@ public class MyCoords implements coords_converter {
 
 	/**
 	 * computes the 3D distance (in meters) between the two gps like points
-	 * source: google
+	 * source: https://stackoverflow.com/questions/3694380/calculating-distance-between-two-points-using-latitude-longitude-what-am-i-doi
 	 */
 	@Override
 	public double distance3d(Point3D gps0, Point3D gps1) {

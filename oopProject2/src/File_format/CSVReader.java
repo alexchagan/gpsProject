@@ -51,7 +51,7 @@ public class CSVReader {
 					color = "blue";
 
 				//meta-data of element creation
-				MyMetaData data = new MyMetaData(userInfo[3],"This is a placemark named: "+userInfo[1]+
+				MyMetaData data = new MyMetaData(userInfo[3],"\n This is a placemark named: "+userInfo[1]+
 						".\n lat:"+lat+" lon:"+lon+" alt:"+alt+"\n Type: "+userInfo[10]+"\n Was recorded in: "+userInfo[3]+"\n"
 						,userInfo[1],color);
 				//create an element and put it in the array
@@ -66,7 +66,7 @@ public class CSVReader {
 			e.printStackTrace();
 		}
 		//meta-data of layer
-		MyMetaData data = new MyMetaData(date.toString(),"This is a layer of "+counter+ " elements, was created in: "+date.toString(),null,null);
+		MyMetaData data = new MyMetaData(date.toString(),"\n This is a layer of "+counter+ " elements, was created in: "+date.toString(),null,null);
 		MyLayer layer = new MyLayer(data);
 		layer.addAll(arr); //we add all the elements to the layer from the array
 		return layer;

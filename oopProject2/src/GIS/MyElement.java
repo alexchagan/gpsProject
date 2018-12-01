@@ -3,7 +3,11 @@ package GIS;
 
 import Geom.Geom_element;
 import Geom.Point3D;
-
+/**
+ * This class implements GIS_element that has geom and meta-data
+ * @author Alex 2062626123
+ *
+ */
 public class MyElement implements GIS_element {
 
 	private Point3D geom;

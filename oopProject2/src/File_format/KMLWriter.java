@@ -26,14 +26,17 @@ public class KMLWriter {
 	/**
 	 * This method creates a KML file that contains all the elements in a  layer
 	 * @param layer
+	 * @param fileName - The name that the user chooses for the file.
 	 * @throws FileNotFoundException
 	 */
-	public void createLayer(MyLayer layer) throws FileNotFoundException
+	public void createLayer(MyLayer layer,String fileName) throws FileNotFoundException
 	{
 
 		Kml kml = new Kml();
 		Document document = kml.createAndSetDocument();
 		Iterator<GIS_element> it = layer.iterator();
+		getColorInfoBlue(document);
+		getColorInfoGreen(document);
 
 		while(it.hasNext())
 		{
@@ -42,34 +45,36 @@ public class KMLWriter {
 			String name = element.getData().getName();
 			Point3D point = (Point3D) element.getGeom();
 			String color = element.getData().getColor();
+			TimeStamp ts = new TimeStamp();
+			String time = "" + element.getData().getUTC();
+			ts.setWhen(time);
 
-			if(color=="blue")
-				getColorInfoBlue(document);
-			if(color=="green")
-				getColorInfoGreen(document);
 
 			//document creation
-			document.createAndAddPlacemark().withName(name).withOpen(Boolean.TRUE).withStyleUrl("#style_" + color)
+			document.createAndAddPlacemark().withName(name).withOpen(Boolean.TRUE).withTimePrimitive(ts).withStyleUrl("#style_" + color)
 			.withDescription(element.getData().toString())
 			.createAndSetPoint().addToCoordinates(point.y(), point.x()); 
 
 
 
-			kml.marshal(new File("kmltest1.kml"));
+			kml.marshal(new File(fileName));
 
 		}
 
 	} 
 	/**
 	 * This method creates a KML file that contains all the elements in all the layers in the project.
+	 * @param fileName - The name that the user chooses for the file.
 	 * @param project
 	 * @throws FileNotFoundException
 	 */
-	public void createProject(MyProject project) throws FileNotFoundException
+	public void createProject(MyProject project,String fileName) throws FileNotFoundException
 	{
 		Kml kml = new Kml();
 		Document document = kml.createAndSetDocument();
 		Iterator<GIS_layer> it = project.iterator();
+		getColorInfoBlue(document);
+		getColorInfoGreen(document);
 
 		while(it.hasNext())
 		{
@@ -82,19 +87,18 @@ public class KMLWriter {
 				String name = element.getData().getName();
 				Point3D point = (Point3D) element.getGeom();
 				String color = element.getData().getColor();
+				TimeStamp ts = new TimeStamp();
+				String time = "" + element.getData().getUTC();
+				ts.setWhen(time);
 
-				if(color=="blue")
-					getColorInfoBlue(document);
-				if(color=="green")
-					getColorInfoGreen(document);
-
+			
 				//document creation
-				document.createAndAddPlacemark().withName(name).withOpen(Boolean.TRUE).withStyleUrl("#style_" + color)
+				document.createAndAddPlacemark().withName(name).withOpen(Boolean.TRUE).withTimePrimitive(ts).withStyleUrl("#style_" + color)
 				.withDescription(element.getData().toString())
 				.createAndSetPoint().addToCoordinates(point.y(), point.x()); 
 			}
 		}
-		kml.marshal(new File("multkmltest.kml"));
+		kml.marshal(new File(fileName));
 
 	}
 
