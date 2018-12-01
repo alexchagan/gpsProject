@@ -17,10 +17,7 @@ public class MyLayer  implements GIS_layer {
 	
 	public MyLayer()
 	{
-		//Date date = new Date();
 		this.elements = new ArrayList<GIS_element>();
-		//this.data = new MyMetaData(date.toString(),"This is a layer of elements, was created in: "+date.toString(),null,null);
-		
 	}
 	
 	public MyLayer(MyMetaData data)

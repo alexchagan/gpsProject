@@ -1,6 +1,6 @@
 package GIS;
 
-import Coords.MyCoords;
+
 import Geom.Geom_element;
 import Geom.Point3D;
 

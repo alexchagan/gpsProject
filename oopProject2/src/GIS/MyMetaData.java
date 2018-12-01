@@ -28,8 +28,23 @@ public class MyMetaData implements Meta_data {
 	 * Computes the UTC of current meta-data in long representation
 	 */
 	public long getUTC() {
+		DateFormat format;
+		
+		if(this.name!=null) // if the meta data belongs to an element there is a special format 
+		{
+		 format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.ENGLISH);
+			try {
+				Date date = format.parse(this.UTC);
+				long utc = date.getTime();
+				return utc;
+			} catch (ParseException e) {
+				e.printStackTrace();
+				return 0;
+			}
 
-		DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss aa", Locale.ENGLISH);
+		} // if not, its the normal Date format
+		else  
+			format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
 		try {
 			Date date = format.parse(this.UTC);
 
@@ -39,8 +54,6 @@ public class MyMetaData implements Meta_data {
 			e.printStackTrace();
 			return 0;
 		}
-
-
 	}
 
 	@Override
