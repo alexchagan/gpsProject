@@ -10,6 +10,7 @@ import GIS.GIS_element;
 import GIS.GIS_layer;
 import GIS.MyElement;
 import GIS.MyLayer;
+import GIS.MyProject;
 import Geom.Geom_element;
 import Geom.Point3D;
 import de.micromata.opengis.kml.v_2_2_0.Document;
@@ -21,7 +22,7 @@ public class KMLWriter {
 
 	public void createLayer(MyLayer layer) throws FileNotFoundException
 	{
-		
+
 		Kml kml = new Kml();
 		Document document = kml.createAndSetDocument();
 		Iterator<GIS_element> it = layer.iterator();
@@ -32,20 +33,42 @@ public class KMLWriter {
 			String name = element.getData().getName();
 			Point3D point = (Point3D) element.getGeom();
 			String color = element.getData().getColor();
-			
+
 			document.createAndAddPlacemark().withName(name).withOpen(Boolean.TRUE)
 			.createAndSetPoint().addToCoordinates(point.y(), point.x()); 
 			document.setStyleUrl("#placemark-red");
-			
-			
+
+
 			kml.marshal(new File("kmltest1.kml"));
-							
+
 		}
 
-
-
-
 	} 
+	public void createProject(MyProject project) throws FileNotFoundException
+	{
+		Kml kml = new Kml();
+		Document document = kml.createAndSetDocument();
+		Iterator<GIS_layer> it = project.iterator();
+		
+		while(it.hasNext())
+		{
+			GIS_layer layer = it.next();
+			Iterator<GIS_element> it2 = layer.iterator();
+			while(it2.hasNext())
+			{
+				GIS_element element = it2.next();
+				String name = element.getData().getName();
+				Point3D point = (Point3D) element.getGeom();
+				String color = element.getData().getColor();
+
+				document.createAndAddPlacemark().withName(name).withOpen(Boolean.TRUE)
+				.createAndSetPoint().addToCoordinates(point.y(), point.x()); 
+			}
+		}
+		kml.marshal(new File("multkmltest.kml"));
+	
+	}
+
 
 }
 

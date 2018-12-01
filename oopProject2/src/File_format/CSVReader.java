@@ -65,9 +65,7 @@ public class CSVReader {
 
 				arr.add(element);
 
-				System.out.println("This is a placemark named: "+userInfo[1]+
-						".\n lat:"+lat+" lon:"+lon+" alt:"+alt+"\n Type: "+userInfo[10]+"\n Was recorded in: "+userInfo[3]+"\n");
-
+				
 			}
 
 		} catch (IOException e) 

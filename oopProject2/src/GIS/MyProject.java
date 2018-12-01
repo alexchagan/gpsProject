@@ -9,6 +9,12 @@ public class MyProject implements GIS_project {
 	private ArrayList<GIS_layer> layers;
 	private Meta_data data;
 	
+	
+	public MyProject(Meta_data data)
+	{
+		this.layers = new ArrayList<GIS_layer>();
+		this.data = data;
+	}
 	@Override
 	public boolean add(GIS_layer e) {
 		
