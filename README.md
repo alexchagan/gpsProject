@@ -1,6 +1,6 @@
 #oopProject2-4
 ========
-This project gives the user tools to create a KML file from data contained in a CSV files and show this data in Google Earth.
+This project gives the user tools to create a KML file from data contained in a CSV file and shows this data in Google Earth.
 It also implements methods of calculation on gps points (represented by latitude,longtitude,altitude) and vectors (represented by meters).
 Note: KML writer and CSV reader are separated for convenience
 
