@@ -235,8 +235,6 @@ public class Point3D implements Geom_element, Serializable
     
     }
     
-
-    
     
 public final static int ONSEGMENT = 0,  LEFT = 1, RIGHT = 2, INFRONTOFA = 3, BEHINDB = 4, ERROR = 5;
 public final static int DOWN = 6, UP = 7;

@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-
 import GIS.MyElement;
 import GIS.MyLayer;
 import GIS.MyMetaData;
@@ -12,7 +11,7 @@ import Geom.Point3D;
 
 /**
  * This class reads from a single csv file and creates a layer
- * @author Alex 206262123
+ * @author Alex,Ilya,Nour
  *
  */
 public class CSVReader {

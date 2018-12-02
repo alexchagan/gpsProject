@@ -9,7 +9,7 @@ import Geom.Point3D;
 
 /**
  * This class implements Meta_data and contains all the possible data.
- * @author Alex 206262123
+ * @author Alex,Ilya,Nour
  *
  */
 public class MyMetaData implements Meta_data {

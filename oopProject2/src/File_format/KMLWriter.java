@@ -16,7 +16,7 @@ import de.micromata.opengis.kml.v_2_2_0.TimeStamp;
 
 /**
  * This class implements methods to make a kml file from a layer or from a project
- * @author Alex 206262123
+ * @author Alex,Ilya,Nour
  *
  */
 public class KMLWriter {
@@ -24,6 +24,7 @@ public class KMLWriter {
 
 	/**
 	 * This method creates a KML file that contains all the elements in a  layer
+	 * source: https://stackoverflow.com/questions/12701364/how-to-mark-multiple-coordinates-in-kml-using-java
 	 * @param layer
 	 * @param fileName - The name that the user chooses for the file.
 	 * @throws FileNotFoundException
@@ -63,6 +64,7 @@ public class KMLWriter {
 	} 
 	/**
 	 * This method creates a KML file that contains all the elements in all the layers in the project.
+	 * source: https://stackoverflow.com/questions/12701364/how-to-mark-multiple-coordinates-in-kml-using-java
 	 * @param fileName - The name that the user chooses for the file.
 	 * @param project
 	 * @throws FileNotFoundException

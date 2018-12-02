@@ -6,7 +6,7 @@ import Geom.Point3D;
 /**
  * This interface represents a GIS element with geometric representation and meta data such as:
  * Orientation, color, string, timing...
- * @author Boaz Ben-Moshe
+ * @author Boaz Ben-Moshe 
  *
  */
 public interface GIS_element

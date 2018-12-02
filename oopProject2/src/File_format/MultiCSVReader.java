@@ -9,7 +9,7 @@ import GIS.MyProject;
 
 /**
  * This class handles reading all csv files from a certain path
- * @author Alex 206262123
+ * @author Alex,Ilya,Nour
  *
  */
 public class MultiCSVReader 
@@ -18,6 +18,7 @@ public class MultiCSVReader
 	/**
 	 * This method reads from all the csv files in the path (including all the folders inside)
 	 * and puts each csv file in a layer and each layer in a project.
+	 * source: https://stackoverflow.com/questions/28236098/how-to-read-multiple-csv-files-from-a-folder-in-java
 	 * @param path
 	 * @return
 	 */
@@ -43,6 +44,7 @@ public class MultiCSVReader
 	}
 /**
  * This method goes over all the documents in a folder and reads the csv files
+ * source: https://stackoverflow.com/questions/28236098/how-to-read-multiple-csv-files-from-a-folder-in-java
  * @param folder
  * @param arr
  * @param csv

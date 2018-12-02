@@ -3,7 +3,7 @@ package Coords;
 import Geom.Point3D;
 /**
  * This class implements coord_converter interface
- * @author Alex Chagan 206262123
+ * @author Alex,Ilya,Nour
  *
  */
 
@@ -11,6 +11,7 @@ public class MyCoords implements coords_converter {
 
 	/**
 	 * computes a new point which is the gps point transformed by a 3D vector (in meters)
+	 * note: not fully accurate
 	 */
 	@Override
 	public Point3D add(Point3D gps, Point3D local_vector_in_meter) {
@@ -19,7 +20,7 @@ public class MyCoords implements coords_converter {
 		double x = gpsCartesian.x() + local_vector_in_meter.x();
 		double y = gpsCartesian.y() + local_vector_in_meter.y();
 		double z = gpsCartesian.z() + local_vector_in_meter.z();
-		
+
 		Point3D point = new Point3D(x,y,z);
 		return point.ecef2lla(); //transform back to LLA
 	}
@@ -27,6 +28,7 @@ public class MyCoords implements coords_converter {
 
 	/**
 	 * computes the 3D distance (in meters) between the two gps like points
+	 * this distance method takes alt in calculation unlike the one in the excel file.
 	 * source: https://stackoverflow.com/questions/3694380/calculating-distance-between-two-points-using-latitude-longitude-what-am-i-doi
 	 */
 	@Override
@@ -75,7 +77,7 @@ public class MyCoords implements coords_converter {
 		double radianLat0 = Math.toRadians(gps0.x()) , radianLon0 = Math.toRadians(gps0.y()) ,
 				radianLat1 =Math.toRadians(gps1.x()) , radianLon1 = Math.toRadians(gps1.y()) ;
 		double longDiff= radianLon1-radianLon0;
-		
+
 		double dX = gps0.x() - gps1.x();
 		double dY = gps0.y() - gps1.y();
 		double dZ = gps0.z() - gps1.z();
@@ -123,7 +125,7 @@ public class MyCoords implements coords_converter {
 	{
 		return gps1.x() - gps0.x();
 	}
-	
+
 	/**
 	 * Difference of lon of 2 gps points
 	 * @param gps0
@@ -137,30 +139,37 @@ public class MyCoords implements coords_converter {
 
 	/**
 	 * Convert lat difference in radians to meter
+	 * source: excel file
 	 * @param val
 	 * @return
 	 */
 	private double toMeterLat(double val)
 	{return Math.sin(val)*6371000;}
 
+	/**
+	 * source: excel file
+	 * @param gps
+	 * @return
+	 */
 	private double lonNorm(Point3D gps)
 	{
 		return Math.cos(gps.x()*Math.PI/180);
 	}
-/**
- * Convert lon difference in radians to meter
- * @param gps0
- * @param gps1
- * @return
- */
- double toMeterLon(Point3D gps0,Point3D gps1)
+	/**
+	 * Convert lon difference in radians to meter
+	 * source: excel file
+	 * @param gps0
+	 * @param gps1
+	 * @return
+	 */
+	private double toMeterLon(Point3D gps0,Point3D gps1)
 	{
 		double diff = Math.toRadians(diffLon(gps0,gps1));
 		double norm = lonNorm(gps0);
-		return Math.sin(diff)*norm*63711000;
+		return Math.sin(diff)*norm*6371000;
 	}
 
-	
+
 
 }
 

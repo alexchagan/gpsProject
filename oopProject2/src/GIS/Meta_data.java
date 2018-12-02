@@ -3,7 +3,7 @@ package GIS;
 import Geom.Point3D;
 /**
  * This interface contains all the relevant data about a specific object
- * @author Alex 206262123
+ * @author Alex,Ilya,Nour
  *
  */
 public interface Meta_data {
